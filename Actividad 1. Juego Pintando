@@ -80,6 +80,9 @@ setup(420, 420, 370, 0)
 onscreenclick(tap)
 listen()
 onkey(undo, 'u')
+
+onkey(lambda): color('cyan'), 'C')
+
 onkey(lambda: color('black'), 'K')
 onkey(lambda: color('white'), 'W')
 onkey(lambda: color('green'), 'G')
@@ -90,5 +93,11 @@ onkey(lambda: store('shape', square), 's')
 onkey(lambda: store('shape', circle), 'c')
 onkey(lambda: store('shape', rectangle), 'r')
 onkey(lambda: store('shape', triangle), 't')
+
+onkey(lambda: store('shape', line), 'L')      
+onkey(lambda: store('shape', square), 'S')    
+onkey(lambda: store('shape', circle), 'O')   
+onkey(lambda: store('shape', rectangle), 'R') 
+onkey(lambda: store('shape', triangle), 'T')
 done()
 
