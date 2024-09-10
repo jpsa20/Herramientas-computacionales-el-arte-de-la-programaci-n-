@@ -57,6 +57,19 @@ def triangle(start, end):
 
     end_fill()
 
+def pentagon(start, end):
+    """Draw a pentagon from start to end."""
+    up()
+    goto(start.x, start.y)
+    down()
+    begin_fill()
+
+    for count in range(5):
+        forward(end.x - start.x)
+        left(72)
+
+    end_fill()
+
 def tap(x, y):
     """Store starting point or draw shape."""
     start = state['start']
@@ -93,11 +106,13 @@ onkey(lambda: store('shape', square), 's')
 onkey(lambda: store('shape', circle), 'c')
 onkey(lambda: store('shape', rectangle), 'r')
 onkey(lambda: store('shape', triangle), 't')
+onkey(lambda: store('shape', pentagon), 'p')
 
 onkey(lambda: store('shape', line), 'L')      
 onkey(lambda: store('shape', square), 'S')    
 onkey(lambda: store('shape', circle), 'O')   
 onkey(lambda: store('shape', rectangle), 'R') 
 onkey(lambda: store('shape', triangle), 'T')
+onkey(lambda: store('shape', pentagon), 'P')
 done()
 
