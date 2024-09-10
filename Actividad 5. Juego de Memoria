@@ -77,9 +77,9 @@ def draw():
     if mark is not None and hide[mark]:
         x, y = xy(mark)
         up()
-        goto(x + 15, y + 5)
+        goto(x + 25, y + 3)
         color('black')
-        write(tiles[mark], font=('Arial', 30, 'normal'))
+        write(tiles[mark], align="center", font=('Arial', 30, 'normal'))  # 'align=center' para centrar
 
     update()
     ontimer(draw, 100)
