@@ -3,6 +3,10 @@ from turtle import *
 
 from freegames import square, vector
 
+# Colores permitidos para la comida (excluyendo rojo)
+food_colors = ['blue', 'yellow', 'purple', 'orange', 'green']
+current_food_color = choice(food_colors)
+
 food = vector(0, 0)
 snake = [vector(10, 0)]
 aim = vector(0, -10)
@@ -39,6 +43,8 @@ def move_food():
 
 def move():
     """Move snake forward one segment."""
+    global current_food_color  # Hacer que la variable sea accesible
+
     head = snake[-1].copy()
     head.move(aim)
 
@@ -53,6 +59,8 @@ def move():
         print('Snake:', len(snake))
         food.x = randrange(-15, 15) * 10
         food.y = randrange(-15, 15) * 10
+        # Cambia el color de la comida al azar al comerla
+        current_food_color = choice(food_colors)
     else:
         snake.pop(0)
 
@@ -61,7 +69,8 @@ def move():
     for body in snake:
         square(body.x, body.y, 9, 'black')
 
-    square(food.x, food.y, 9, 'green')
+    # Dibuja la comida con el color actual
+    square(food.x, food.y, 9, current_food_color)
     update()
     ontimer(move, 100)
 
