@@ -20,10 +20,10 @@ writer = Turtle(visible=False)
 aim = vector(5, 0)
 pacman = vector(-40, -80)
 ghosts = [
-    [vector(-180, 160), vector(5, 0)],
-    [vector(-180, -160), vector(0, 5)],
-    [vector(100, 160), vector(0, -5)],
-    [vector(100, -160), vector(-5, 0)],
+    [vector(-180, 160), vector(10, 0)],  # Aumentar velocidad a 10 unidades
+    [vector(-180, -160), vector(0, 10)],  # Aumentar velocidad a 10 unidades
+    [vector(100, 160), vector(0, -10)],  # Aumentar velocidad a 10 unidades
+    [vector(100, -160), vector(-10, 0)],  # Aumentar velocidad a 10 unidades
 ]
 # fmt: off
 tiles = [
@@ -125,14 +125,14 @@ def move():
         else:
             if abs(pacman.x - point.x) > abs(pacman.y - point.y):
                 if pacman.x > point.x:
-                    plan = vector(5, 0)
+                    plan = vector(10, 0)  # Aumentar velocidad de ajuste a 10
                 else:
-                    plan = vector(-5, 0)
+                    plan = vector(-10, 0)  # Aumentar velocidad de ajuste a 10
             else:
                 if pacman.y > point.y:
-                    plan = vector(0, 5)
+                    plan = vector(0, 10)  # Aumentar velocidad de ajuste a 10
                 else:
-                    plan = vector(0, -5)
+                    plan = vector(0, -10)  # Aumentar velocidad de ajuste a 10
             
             course.x = plan.x
             course.y = plan.y
@@ -147,7 +147,7 @@ def move():
         if abs(pacman - point) < 20:
             return
 
-    ontimer(move, 110)
+    ontimer(move, 110)  
 
 
 def change(x, y):
