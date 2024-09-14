@@ -1,12 +1,12 @@
-"""Memory, puzzle game of number pairs.
+"""Memory, puzzle game of letter pairs.
 
 Exercises:
 
 1. Count and print how many taps occur.
 2. Decrease the number of tiles to a 4x4 grid.
 3. Detect when all tiles are revealed.
-4. Center single-digit tile.
-5. Use letters instead of tiles.
+4. Center single-letter tile.
+5. Use letters instead of digits.
 """
 
 from random import *
@@ -15,7 +15,8 @@ from turtle import *
 from freegames import path
 
 car = path('car.gif')
-tiles = list(range(32)) * 2
+# Utiliza letras en lugar de números
+tiles = list('ABCDEFGHIJKLMNOPQRSTUVWXYZabcdef') * 2
 state = {'mark': None}
 hide = [True] * 64
 tap_count = 0 
@@ -83,6 +84,7 @@ def draw():
         up()
         goto(x + 25, y + 3)
         color('black')
+        # Muestra la letra en lugar de un número
         write(tiles[mark], align="center", font=('Arial', 30, 'normal'))  # 'align=center' para centrar
 
     update()
